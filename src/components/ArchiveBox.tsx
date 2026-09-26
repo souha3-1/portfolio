@@ -13,13 +13,14 @@ import { BOX, folderDepth, folderHeight } from "./box";
 
 type Props = {
   projects: Project[];
+  offset: number;
   active: number | null;
   opened: number | null;
   onHover: (index: number | null) => void;
   onOpen: (index: number) => void;
 };
 
-export function ArchiveBox({ projects, active, opened, onHover, onOpen }: Props) {
+export function ArchiveBox({ projects, offset, active, opened, onHover, onOpen }: Props) {
   const stageRef = useRef<HTMLDivElement>(null);
   const reduce = useReducedMotion();
 
@@ -63,7 +64,7 @@ export function ArchiveBox({ projects, active, opened, onHover, onOpen }: Props)
       onPointerLeave={handleLeave}
       className="relative mx-auto w-[340px] scale-[0.78] select-none sm:scale-90 lg:scale-100"
       style={{ perspective: 1500 }}
-      aria-label="Archive box containing project folders"
+      aria-label={`Archive box containing project folders ${offset + 1} to ${offset + projects.length}`}
     >
       <div
         aria-hidden="true"
@@ -148,8 +149,15 @@ export function ArchiveBox({ projects, active, opened, onHover, onOpen }: Props)
           }}
         />
 
-        {/* folders, back to front */}
-        <div className="absolute inset-0" style={{ transformStyle: "preserve-3d" }}>
+        {/* folders, back to front; keyed by volume so switching crossfades */}
+        <motion.div
+          key={offset}
+          className="absolute inset-0"
+          style={{ transformStyle: "preserve-3d" }}
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+        >
           {projects
             .map((project, i) => ({ project, i }))
             .reverse()
@@ -157,16 +165,17 @@ export function ArchiveBox({ projects, active, opened, onHover, onOpen }: Props)
               <ArchiveFolder
                 key={project.slug}
                 project={project}
-                index={i}
-                depth={folderDepth(i)}
+                index={offset + i}
+                slot={i}
+                depth={folderDepth(i, projects.length)}
                 height={folderHeight(i)}
-                isActive={active === i}
-                isOpened={opened === i}
+                isActive={active === offset + i}
+                isOpened={opened === offset + i}
                 onHover={onHover}
                 onOpen={onOpen}
               />
             ))}
-        </div>
+        </motion.div>
 
         {/* front panel */}
         <div

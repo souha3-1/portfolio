@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import type { Project } from "../data/projects";
 import { ProjectCard } from "./ProjectCard";
+import { VOLUME_SIZE, volumeCount } from "./box";
 
 type Props = {
   projects: Project[];
@@ -10,6 +11,7 @@ type Props = {
 };
 
 export function ProjectList({ projects, active, onActivate, onOpen }: Props) {
+  const volumes = volumeCount(projects.length);
   return (
     <ol className="flex flex-col gap-4">
       {projects.map((project, i) => (
@@ -23,6 +25,13 @@ export function ProjectList({ projects, active, onActivate, onOpen }: Props) {
             ease: [0.22, 1, 0.36, 1],
           }}
         >
+          {volumes > 1 && i % VOLUME_SIZE === 0 && (
+            <p
+              className={`mb-3 text-[10px] font-semibold uppercase tracking-[0.22em] text-ink-soft ${i > 0 ? "mt-6" : ""}`}
+            >
+              Vol. {i / VOLUME_SIZE + 1}
+            </p>
+          )}
           <ProjectCard
             project={project}
             dimmed={active !== null && active !== i}

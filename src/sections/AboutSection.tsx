@@ -18,7 +18,7 @@ export function AboutSection() {
           </p>
           <div className="relative mt-10 w-56 -rotate-3 rounded-lg bg-[#dbe4eb] p-5 shadow-[0_24px_50px_-24px_rgba(25,22,19,0.45)] transition-transform duration-500 hover:rotate-0">
             <div className="absolute -top-3 left-1/2 h-6 w-16 -translate-x-1/2 rotate-2 bg-cream/80 shadow-sm" />
-            <p className="font-display text-5xl font-medium tracking-tight">
+            <p className="font-display text-3xl font-medium leading-tight tracking-tight">
               {site.name}
             </p>
             <p className="mt-3 text-[11px] uppercase tracking-[0.18em] text-ink/60">

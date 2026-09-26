@@ -2,6 +2,7 @@ import { motion, useReducedMotion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { ArchiveBox } from "../components/ArchiveBox";
 import { ProjectList } from "../components/ProjectList";
+import { VOLUME_SIZE, volumeCount, volumeOf } from "../components/box";
 import { projects } from "../data/projects";
 import { projectHref } from "../hooks/useHashRoute";
 
@@ -9,7 +10,17 @@ export function WorkSection() {
   const reduce = useReducedMotion();
   const [active, setActive] = useState<number | null>(null);
   const [opened, setOpened] = useState<number | null>(null);
+  const [volume, setVolume] = useState(0);
   const timer = useRef<number | null>(null);
+
+  const volumes = volumeCount(projects.length);
+  const offset = volume * VOLUME_SIZE;
+  const volumeProjects = projects.slice(offset, offset + VOLUME_SIZE);
+
+  const activate = (index: number | null) => {
+    setActive(index);
+    if (index !== null) setVolume(volumeOf(index));
+  };
 
   useEffect(() => {
     return () => {
@@ -20,6 +31,7 @@ export function WorkSection() {
   const openProject = (index: number) => {
     if (opened !== null) return;
     setActive(index);
+    setVolume(volumeOf(index));
     setOpened(index);
     timer.current = window.setTimeout(
       () => {
@@ -65,7 +77,8 @@ export function WorkSection() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.45, duration: 0.6 }}
         >
-          {String(projects.length).padStart(2, "0")} files — archive open
+          {String(projects.length).padStart(2, "0")} files —{" "}
+          {volumes > 1 ? `vol. ${volume + 1} of ${volumes}` : "archive open"}
         </motion.p>
       </div>
 
@@ -73,17 +86,44 @@ export function WorkSection() {
         <ProjectList
           projects={projects}
           active={active}
-          onActivate={setActive}
+          onActivate={activate}
           onOpen={openProject}
         />
         <div className="mt-28 pb-10 lg:mt-0 lg:pb-0">
           <ArchiveBox
-            projects={projects}
+            projects={volumeProjects}
+            offset={offset}
             active={active}
             opened={opened}
-            onHover={setActive}
+            onHover={activate}
             onOpen={openProject}
           />
+          {volumes > 1 && (
+            <div
+              role="group"
+              aria-label="Archive volumes"
+              className="mt-8 flex justify-center gap-2"
+            >
+              {Array.from({ length: volumes }, (_, v) => (
+                <button
+                  key={v}
+                  type="button"
+                  aria-current={volume === v}
+                  onClick={() => {
+                    setVolume(v);
+                    setActive(null);
+                  }}
+                  className={`rounded-full border px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.22em] transition-colors ${
+                    volume === v
+                      ? "border-ink bg-ink text-cream"
+                      : "border-ink/15 text-ink-soft hover:border-ink/40 hover:text-ink"
+                  }`}
+                >
+                  Vol. {v + 1}
+                </button>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </section>

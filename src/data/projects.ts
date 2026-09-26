@@ -116,4 +116,100 @@ export const projects: Project[] = [
       "App-store rating moved from 3.1 to 4.7 across two releases. 'Check balance' became the second-most used widget in the beta cohort.",
     tools: ["Figma", "React Native", "Reanimated", "ProtoPie"],
   },
+  {
+    slug: "atlas-travel-journal",
+    number: "05",
+    title: "Atlas Travel Journal",
+    shortTitle: "ATLAS",
+    description:
+      "Maps and memories. A journaling app that turns trips into stories.",
+    category: "Mobile Design / Illustration",
+    year: "2024",
+    role: "Product designer",
+    color: "#dfe7db",
+    colorDeep: "#64806a",
+    overview:
+      "Atlas is a travel journal that pins photos, notes, and routes to a living map, then binds them into a shareable story at the end of each trip.",
+    challenge:
+      "Travelers take hundreds of photos and write nothing: context evaporates within days. Existing journal apps felt like homework and died by day three.",
+    approach:
+      "We designed for tired travelers: one-tap captures, voice notes, and auto-generated day spreads. Prototypes were tested on actual weekend trips with five participants.",
+    solution:
+      "A sage-toned, paper-textured journal where each day is a spread: map trace, photo stack, and a single prompt per day — never more. Stories export as a scrollable web page.",
+    outcome:
+      "Day-three retention doubled versus the prototype baseline, and exported stories became the app's main acquisition channel.",
+    tools: ["Figma", "SwiftUI", "MapKit", "Procreate"],
+  },
+  {
+    slug: "studio-commerce",
+    number: "06",
+    title: "Studio Commerce",
+    shortTitle: "STUDIO",
+    description:
+      "Ceramics, sold softly. An e-commerce build for a small pottery studio.",
+    category: "E-commerce / Development",
+    year: "2023",
+    role: "Designer & developer",
+    color: "#f1e8d7",
+    colorDeep: "#a9854f",
+    overview:
+      "A quiet storefront for a two-person ceramics studio: small batches, honest photography, and a checkout that never shouts.",
+    challenge:
+      "The studio sold through DMs and spreadsheets. Drops sold out in minutes and oversold regularly; shipping quotes were manual and slow.",
+    approach:
+      "We modeled drops as timed collections with real inventory counts, and photographed every piece on the same linen backdrop for a consistent catalog.",
+    solution:
+      "A warm cream storefront with editorial product pages, waitlist sign-ups for sold-out pieces, and automated shipping rules — built headless so the studio can write their own copy.",
+    outcome:
+      "Overselling went to zero across three drops, and admin time per order fell from nine minutes to under two.",
+    tools: ["React", "TypeScript", "Stripe", "Sanity CMS"],
+  },
+  {
+    slug: "pulse-fitness-dashboard",
+    number: "07",
+    title: "Pulse Fitness Dashboard",
+    shortTitle: "PULSE",
+    description:
+      "Training data, beautifully behaved. A coach-facing analytics dashboard.",
+    category: "Data Visualization / UI",
+    year: "2023",
+    role: "Senior product designer",
+    color: "#d8e6e4",
+    colorDeep: "#4f7f7a",
+    overview:
+      "Pulse gives strength coaches one screen per athlete: load, readiness, and progress — readable in ten seconds between sessions.",
+    challenge:
+      "Coaches drowned in export sheets from three devices. Signals that matter were buried under charts nobody trusted or read.",
+    approach:
+      "We ran decision-mapping workshops: what question does each glance answer? Every chart earned its place or was cut. Color was reserved for alerts only.",
+    solution:
+      "A muted teal dashboard with sparkline-first layouts, plain-language readiness scores, and drill-downs that open only on demand. Fully keyboard-navigable for gym-floor use.",
+    outcome:
+      "Coaches cut weekly review time by half, and the readiness score became the team's shared vocabulary across staff.",
+    tools: ["Figma", "React", "D3", "Storybook"],
+  },
+  {
+    slug: "maison-restaurant-site",
+    number: "08",
+    title: "Maison Restaurant Site",
+    shortTitle: "MAISON",
+    description:
+      "A menu that reads like a story. Web design for a neighborhood restaurant.",
+    category: "Web Design / Art Direction",
+    year: "2022",
+    role: "Art director & designer",
+    color: "#f5e0d3",
+    colorDeep: "#c07a52",
+    overview:
+      "A one-page site for Maison: seasonal menu, quiet photography, and reservations — designed to feel like being seated at the table.",
+    challenge:
+      "The old site was a PDF menu and a phone number. Mobile visitors bounced before finding tonight's menu or a way to book.",
+    approach:
+      "We art-directed a single scroll: courses revealed in sequence, type set like a printed menu, photography shot in available light only.",
+    solution:
+      "A peach-warm editorial page with a live menu sourced from a simple CMS the chef updates himself, plus a two-tap reservation flow.",
+    outcome:
+      "Mobile bounce rate halved, and online reservations overtook phone bookings within two months of launch.",
+    tools: ["Figma", "Astro", "CSS", "Netlify CMS"],
+  },
 ];

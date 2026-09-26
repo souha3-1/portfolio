@@ -7,6 +7,7 @@ export const FOLDER_WIDTH = 280;
 type Props = {
   project: Project;
   index: number;
+  slot: number;
   depth: number;
   height: number;
   isActive: boolean;
@@ -18,6 +19,7 @@ type Props = {
 export function ArchiveFolder({
   project,
   index,
+  slot,
   depth,
   height,
   isActive,
@@ -50,7 +52,7 @@ export function ArchiveFolder({
         style={{ transformStyle: "preserve-3d" }}
         animate={{
           y: isOpened ? -270 : isActive ? -38 : 0,
-          z: isOpened ? 150 : isActive ? 95 : 0,
+          z: isOpened ? 150 - depth : isActive ? 95 - depth : 0,
           rotate: isOpened ? -5 : isActive ? -1.5 : 0,
         }}
         transition={{ type: "spring", stiffness: 110, damping: 15 }}
@@ -66,7 +68,7 @@ export function ArchiveFolder({
         />
         <div
           className="absolute -top-6 flex h-7 items-end rounded-t-md border border-b-0 border-ink/15 px-2.5 pb-1 text-[8px] font-semibold tracking-[0.14em] text-ink/70"
-          style={{ left: 12 + index * 16, width: 108, backgroundColor: project.color }}
+          style={{ left: 12 + slot * 16, width: 108, backgroundColor: project.color }}
         >
           {project.number} / {project.shortTitle}
         </div>

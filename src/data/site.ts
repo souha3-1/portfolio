@@ -1,5 +1,5 @@
 export const site = {
-  name: "souha.",
+  name: "Souha Nekamiche",
   role: "Product designer & creative developer",
   location: "Amsterdam, NL",
   email: "hello@souha.studio",

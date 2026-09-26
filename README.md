@@ -1,4 +1,4 @@
-# souha. — Archive Portfolio
+# Souha Nekamiche — Archive Portfolio
 
 A motion-driven creative portfolio presented as a physical archive of work:
 pastel project files, a 3D archive box built with CSS transforms, and
