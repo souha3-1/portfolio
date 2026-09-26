@@ -17,7 +17,6 @@ export function ContactSection() {
         <Reveal delay={0.12}>
           <a
             href={`mailto:${site.email}`}
-            data-cursor="open"
             className="mt-12 inline-flex items-center gap-3 rounded-full bg-cream px-8 py-4 text-sm font-semibold text-ink transition-transform duration-300 hover:-translate-y-1"
           >
             {site.email}

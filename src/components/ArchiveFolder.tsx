@@ -42,7 +42,6 @@ export function ArchiveFolder({
       <motion.button
         type="button"
         aria-label={`Open project ${project.number}: ${project.title}`}
-        data-cursor="open"
         onPointerEnter={() => onHover(index)}
         onPointerLeave={() => onHover(null)}
         onFocus={() => onHover(index)}

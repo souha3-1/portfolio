@@ -102,7 +102,7 @@ export function WorkSection() {
             <div
               role="group"
               aria-label="Archive volumes"
-              className="mt-8 flex justify-center gap-2"
+              className="mt-16 flex justify-center gap-2"
             >
               {Array.from({ length: volumes }, (_, v) => (
                 <button

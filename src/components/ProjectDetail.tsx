@@ -164,7 +164,6 @@ export function ProjectDetail({ slug }: Props) {
       <Reveal>
         <a
           href={projectHref(next.slug)}
-          data-cursor="open"
           className="group mt-16 flex items-center justify-between gap-6 rounded-2xl border border-ink/10 px-7 py-7 transition-colors sm:px-9"
           style={{ backgroundColor: next.color }}
         >

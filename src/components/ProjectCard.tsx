@@ -17,7 +17,6 @@ export function ProjectCard({ project, dimmed, onActivate, onOpen }: Props) {
     >
       <motion.a
         href={projectHref(project.slug)}
-        data-cursor="open"
         onMouseEnter={() => onActivate(true)}
         onMouseLeave={() => onActivate(false)}
         onFocus={() => onActivate(true)}
