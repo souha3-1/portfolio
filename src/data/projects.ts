@@ -45,28 +45,30 @@ export const projects: Project[] = [
     tools: ["React", "TypeScript", "Vite", "Supabase", "Tailwind CSS", "Vercel"],
   },
   {
-    slug: "popcorn-website",
+    slug: "kames-shelves",
     number: "02",
-    title: "Popcorn Website",
-    shortTitle: "POPCORN",
+    title: "Kame’s Shelves",
+    shortTitle: "KAMES",
     description:
-      "Streaming and discovery. Exploring how people find their next watch.",
-    category: "Web Design / Creative Development",
-    year: "2025",
-    role: "Designer & frontend developer",
-    color: "#f4e6a9",
-    colorDeep: "#b98a12",
+      "A small Algerian bookstore, online. Mood-first browsing, a saved-for-later shelf, and a bag that remembers.",
+    category: "Full-Stack Design / Development",
+    year: "2026",
+    role: "Designer & developer",
+    color: "#f2dce4",
+    colorDeep: "#a34d72",
+    liveUrl:
+      "https://kames-bookstore-kames-shelves-1m9sg4ux9-sou-f079.vercel.app/",
     overview:
-      "Popcorn is a discovery layer for streaming: one warm, playful place to answer the nightly question — what are we watching? Editorial curation meets a recommendation engine that explains itself.",
+      "Kame’s Shelves is a boutique online bookshop organised around feelings instead of genres: readers pick a mood — fiction, romance, self-growth, classics, young adult — and the shelves answer. Around that discovery layer sits a real store: product pages, a bag, and a saved-for-later shelf that waits patiently.",
     challenge:
-      "Streaming catalogues are infinite and paralysing. People scroll for forty minutes and watch nothing. Existing tools recommend titles but never build trust or taste.",
+      "Most online bookstores replicate the warehouse: endless grids sorted by category. Kame’s wanted the opposite — the warmth of a neighbourhood shopkeeper who knows what you need before you do — without losing the mechanics of a real shop: catalog, bag, and wishlist.",
     approach:
-      "We prototyped a 'taste profile' onboarding that feels like a magazine quiz, not a form. Card sorts and first-click tests shaped a browse experience built around moods and moments instead of genres.",
+      "Designed and built as a TypeScript monorepo: a Vite + React storefront on Supabase with an API server beside it. Discovery came first — mood chips, editorial picks under “Books we’re talking about”, and book spines rendered as shelf objects — then the commerce layer: bag state that persists and a saved-for-later shelf per reader.",
     solution:
-      "A buttery, editorial interface: big serif headlines, hand-curated collections, and recommendation cards that say why a film fits tonight. Micro-interactions — a kernel popping into a watchlist — make saving a title feel like a treat.",
+      "A plum-and-rose editorial interface: a hero of leaning book spines, feeling-first category chips, curated shelves with one-tap add-to-bag, wishlist and bag counts in the header, and honest local logistics — delivery everywhere in Algeria, pay when it arrives.",
     outcome:
-      "Time-to-decision fell from 41 minutes to under 6 in usability sessions. The launch site earned an honourable mention in a web-design annual and doubled newsletter sign-ups.",
-    tools: ["Next.js", "Tailwind CSS", "Motion", "Sanity CMS"],
+      "Live on Vercel as a complete shopping loop: browse by mood, save for later, fill the bag, check out. The voice-first layout keeps first-time visitors reading instead of bouncing, and the whole shop stays legible on a phone.",
+    tools: ["React", "TypeScript", "Vite", "Supabase", "Tailwind CSS", "Radix UI"],
   },
   {
     slug: "ehr-web-app",
